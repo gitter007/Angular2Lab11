@@ -9,8 +9,6 @@ import { Component, Input, Output, EventEmitter} from '@angular/core';
           {{counterValue}}
       <button (click)="increment()">+</button>
     </div>
-    <p>Output "data Obj" to Parent: <button (click)="emitMessage()">Click to Output!</button></p>
-
 
      `,
   styles: [` #counterDiv { 
