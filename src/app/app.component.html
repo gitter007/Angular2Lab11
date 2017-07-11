@@ -5,4 +5,7 @@
   </h1>
 </div>
 <h2>Student #985803: </h2>
-<app-counter></app-counter>
+<app-counter counterValue="{{counter}}" (counterChange)="showOutputData($event)"></app-counter>
+<ul>
+    <li>Current counter: {{outputData}}</li>
+</ul>
