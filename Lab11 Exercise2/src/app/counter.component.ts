@@ -19,6 +19,8 @@ import { Component, Input, Output, EventEmitter} from '@angular/core';
 })
 export class CounterComponent{
   @Input() private counterValue;
+  @Output() counterChange = new EventEmitter();
+
   constructor() { 
     this.counterValue =0 ;
   }
@@ -33,7 +35,6 @@ export class CounterComponent{
     this.counterChange.emit(this.counterValue);
   }
 
-  @Output() counterChange = new EventEmitter();
 
   emitMessage() {
     this.counterChange.emit(this.counterValue);
