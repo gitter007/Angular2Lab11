@@ -19,6 +19,7 @@ import { Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
 })
 export class CounterComponent  implements OnInit {
   @Input() private counterValue;
+  @Output() counterChange = new EventEmitter();
   
   constructor() { 
     this.counterValue =0 ;
@@ -34,7 +35,7 @@ export class CounterComponent  implements OnInit {
     this.counterChange.emit(this.counterValue);
   }
 
-  @Output() counterChange = new EventEmitter();
+
 
   emitMessage() {
     this.counterChange.emit(this.counterValue);
