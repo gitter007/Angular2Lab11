@@ -9,9 +9,9 @@ export class AppComponent {
   public counter = 5;
   title = 'Lab11';
 
-  public outputData;
+  public ComponentCounterValue;
 
   showOutputData(data){
-    this.outputData = data;
+    this.ComponentCounterValue = data;
   }  
 }
