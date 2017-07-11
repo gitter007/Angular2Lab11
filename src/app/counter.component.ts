@@ -1,4 +1,4 @@
-import { Component, Input, Output, EventEmitter} from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
 
 @Component({
   selector: 'app-counter',
@@ -9,9 +9,7 @@ import { Component, Input, Output, EventEmitter} from '@angular/core';
           {{counterValue}}
       <button (click)="increment()">+</button>
     </div>
-    <p>Output "data Obj" to Parent: <button (click)="emitMessage()">Click to Output!</button></p>
-
-
+  
      `,
   styles: [` #counterDiv { 
     font-weight:bold; 
@@ -19,8 +17,9 @@ import { Component, Input, Output, EventEmitter} from '@angular/core';
     display: inline;
     padding:5px }`],
 })
-export class CounterComponent{
+export class CounterComponent  implements OnInit {
   @Input() private counterValue;
+  
   constructor() { 
     this.counterValue =0 ;
   }
@@ -38,6 +37,9 @@ export class CounterComponent{
   @Output() counterChange = new EventEmitter();
 
   emitMessage() {
+    this.counterChange.emit(this.counterValue);
+  }
+  ngOnInit() {    
     this.counterChange.emit(this.counterValue);
   }
 
