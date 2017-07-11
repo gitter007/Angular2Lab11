@@ -2,21 +2,32 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-counter',
-  template: ` <p class = "red">Red Paragraph {{counterValue}}</p>
-      <button ng-click="counterValue=counterValue-1"><i class="glyphicon glyphicon-minus">  </i></button>
-    {{counterValue}}
-    <button  ng-click="counterValue=counterValue+1"> <i class="glyphicon glyphicon-plus">  </i> </button>
-    
+  template: ` 
+    <h3>Counter demo:</h3>
+    <div id = "counter">
+    <button (click)="decrement()">-</button>
+         {{counterValue}}
+    <button (click)="increment()">+</button>
+    </div>
      `,
-  styles: []
+  styles: [` #counter { 
+    font-weight:bold; 
+    border: 1px solid gray;
+    display: inline;
+    padding:5px }`],
 })
-export class CounterComponent implements OnInit {
+export class CounterComponent{
   private counterValue;
   constructor() { 
     this.counterValue =0 ;
   }
 
-  ngOnInit() {
+  decrement(){
+    this.counterValue = this.counterValue-1;
+  }
+
+  increment(){
+    this.counterValue = this.counterValue+1;
   }
 
 }
